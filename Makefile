@@ -1,4 +1,7 @@
 build:
+	rm -rf build build
+	rm -rf build dist
+	rm -rf *.egg-info
 	python -m pip install --upgrade setuptools wheel
 	python setup.py sdist bdist_wheel
 

@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='pynimbar',
-    version='1.0.0',
+    version='1.0.1',
     author='Gabriel Mitelman Tkacz',
     description='Make your Python scripts more user friendly with loading animations',
     long_description=long_description,
