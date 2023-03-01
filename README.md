@@ -30,3 +30,6 @@ You can customize the appearance and behavior of the loading animation using the
 
 ## Contributing
 If you have any suggestions or improvements for pynimbar, feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/gtkacz/pynimbar). We appreciate any feedback or contributions!
+
+## Example
+![Example functionality](/img/example.gif)
