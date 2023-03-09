@@ -1,19 +1,20 @@
 import threading
 import time
-from contextlib import contextmanager
 import traceback
+from contextlib import contextmanager
+from typing import Iterable
 
 
 @contextmanager
-def loading_animation(text: str, success_msg: str = 'ok', animation_frequency: float = 0.1, break_on_error: bool = False, verbose_errors: bool = False, frames: str = '|/-\\'):
+def loading_animation(text: str, success_msg: str = 'ok', animation_frequency: float = 0.1, break_on_error: bool = True, verbose_errors: bool = False, frames: Iterable = '|/-\\'):
     """
-    A context manager that displays a loading animation while the code block is running.    
+    A context manager that displays a loading animation while the code block is running. Can also handle errors.
 
     Args:
         text (str): The text to display during the animation.
         success_msg (str, optional): The text to display when the animation is done. Defaults to 'ok'.
         animation_frequency (float, optional): The frequency of the animation. Defaults to 0.1.
-        break_on_error (bool, optional): Whether to break on error. Defaults to False.
+        break_on_error (bool, optional): Whether to break on error. Defaults to True.
         verbose_errors (bool, optional): Whether to print the error traceback. Defaults to False.
         frames (str, optional): The frames of the animation. Defaults to '|/-\\'.
     """
@@ -29,10 +30,10 @@ def loading_animation(text: str, success_msg: str = 'ok', animation_frequency: f
 
     # Define the loading animation function
     def animate():
-        while getattr(threading.current_thread(), "do_run", True):
+        while getattr(threading.current_thread(), 'do_run', True):
             for c in frames:
-                if getattr(threading.current_thread(), "do_run", True):
-                    print(f"\r{text} {c}", end="", flush=True)
+                if getattr(threading.current_thread(), 'do_run', True):
+                    print(f'\r{text} {c}', end='', flush=True)
                     time.sleep(animation_frequency)
                 else:
                     break
@@ -48,9 +49,9 @@ def loading_animation(text: str, success_msg: str = 'ok', animation_frequency: f
         # Stop the loading animation
         t.do_run = False
         t.join()
-        print(f"\r{FAIL}{text} {e}{ENDC}")
+        print(f'\r{FAIL}{text} {e.__class__.__name__}{ENDC}')
         if break_on_error:
-            raise e
+            raise e from e
         elif verbose_errors:
             traceback.print_exc()
 
@@ -58,4 +59,4 @@ def loading_animation(text: str, success_msg: str = 'ok', animation_frequency: f
         # Stop the loading animation
         t.do_run = False
         t.join()
-        print(f"\r{OKGREEN}{text} {success_msg}{ENDC}")
+        print(f'\r{OKGREEN}{BOLD}{text} {success_msg}{ENDC}')

@@ -24,7 +24,7 @@ You can customize the appearance and behavior of the loading animation using the
 - `text` (str): The text to display during the animation.
 - `success_msg` (str, optional): The text to display when the animation is done. Defaults to `'ok'`.
 - `animation_frequency` (float, optional): The frequency of the animation. Defaults to `0.1`.
-- `break_on_error` (bool, optional): Whether to break on error. Defaults to `False`.
+- `break_on_error` (bool, optional): Whether to break on error. Defaults to `True`.
 - `verbose_errors` (bool, optional): Whether to print the error traceback. Defaults to `False`.
 - `frames` (str, optional): The frames of the animation. Defaults to `'|/-\\'`.
 
