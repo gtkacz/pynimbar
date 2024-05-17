@@ -27,6 +27,8 @@ You can customize the appearance and behavior of the loading animation using the
 - `break_on_error` (bool, optional): Whether to break on error. Defaults to `True`.
 - `verbose_errors` (bool, optional): Whether to print the error traceback. Defaults to `False`.
 - `frames` (str, optional): The frames of the animation. Defaults to `'|/-\\'`.
+- `time_it` (bool, optional): Whether to time the execution of the code block. Defaults to False.
+- `time_it_live` (bool, optional): Whether to print the live execution time of the code block. Defaults to False.
 
 ## Contributing
 If you have any suggestions or improvements for pynimbar, feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/gtkacz/pynimbar). We appreciate any feedback or contributions!

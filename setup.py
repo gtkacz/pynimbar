@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='pynimbar',
-    version='1.0.1',
+    version='1.1.0',
     author='Gabriel Mitelman Tkacz',
     description='Make your Python scripts more user friendly with loading animations',
     long_description=long_description,
@@ -18,6 +18,16 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     py_modules=['pynimbar'],
-    package_dir={'': 'pynimbar/src'},
-    install_requires=[]
+    # package_dir={'': Path('pynimbar/src').__str__()},
+    install_requires=[],
+    entry_points={
+        'console_scripts': [
+            'pynimbar = pynimbar.src.pynimbar:main',
+        ],
+    },
+    project_urls={
+        'Bug Tracker': ''},
+    include_package_data=True,
+    zip_safe=False,
+
 )
